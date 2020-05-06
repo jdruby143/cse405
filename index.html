@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>JSON Example</title>
-    </head>
-    <body>
-        <h1> Welcome Students</h1>
-        <h2>View Students Below</h2>          
-                
-        <script type="text/javascript"> 
+<html lang= "en">
+        <head>
+                <meta charset="UFF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie-edge">
+                <title>JSON example</title>
+                <h1>Welcome Students</h1>
+                <h2>View Students</h2>
+        </head>
+        <body>            
+                <script>
+                    var students = 
+                    {   "student1" : {  
+                        "name" : "ruby",
+                        "ID" : 221, 
+                        "major" : "computer science "
+                        },
+                         "student2" : {
+                         "name" : "marco",
+                         "ID " : 304,
+                         "major " : "Computer engineer "
+                         }, 
+                        "student3" : {
+                        "name" : "rick", 
+                         "ID " : 930,
+                         "major " : "Math "
+                         }     
         
-                 var students = 
-              [
-                  {
-                      "Name" : "Jess",
-                      "ID" : 123,
-                      "Major" : "Computer Science"
-                  },
-                  {
-                      "Name" : "Mart",
-                      "ID" : 234,
-                      "Major" : "Computer Engineer"
-                  }, 
-                  {
-                      "Name" : "Jay",
-                      "ID" : 103,
-                      "Major" : "Math"
-
-                  }
-              ] 
-              
-           console.log(students)
-                 
-                  
-        </script>
-    </body>
+                    }                                      
+                        students = JSON.stringify(students);
+                        students = JSON.parse(students);
+                        console.log(students);
+                        
+                </script>
+        </body>
 </html>
