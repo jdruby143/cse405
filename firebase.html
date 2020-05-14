@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <meta charset="UTF-8">
+        <title>Firebase Example</title>
+        <h1> Welcome Students</h1>
+        <h2>Enter Students Name Below</h2>        
+        
+    </head>
+    <body>   
+         
+       INFO1 : <input type="text" id="info1"><br>
+       INFO2 : <input type="text" id="info2"><br> 
+       <button id="save_button">SAVE</button>
+       <button id="clear_button">CLEAR</button>
+       <button id="load_button">LOAD</button>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>        
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script> 
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script> 
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>  
+<script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB1scbVw4KwZMro71EE_uZ7AjhoXYCm9Ps",
+            authDomain: "fir-project-2bce1.firebaseapp.com",
+            databaseURL: "https://fir-project-2bce1.firebaseio.com",
+            projectId: "fir-project-2bce1",
+            storageBucket: "fir-project-2bce1.appspot.com",
+            messagingSenderId: "593126813383",
+            appId: "1:593126813383:web:06585342357d685ef858e2",
+            measurementId: "G-8FTRD87JN8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+var rootRef = firebase.database().ref().child('infos');
+
+$('#save_button').click(function(){
+    rootRef.set({
+        info1:$('#info1').val(),
+        info2:$('#info2').val()
+    });
+
+});
+
+$('#clear_button').click(function(){
+    $('#info1').val('');
+    $('#info2').val('');
+});
+
+$('#load_button').click(function(){
+    rootRef.on('value', function(snapshot){
+        $('#info1').val(snapshot.child('info1').val());
+        $('#info2').val(snapshot.child('info2').val());
+    });
+});
+
+</script>     
+    </body>
+</html>
