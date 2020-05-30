@@ -1,0 +1,45 @@
+<html>
+    <head>         
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <h1>Students</h1>
+
+        <div class="content">
+
+            <form id="add-students-form">
+
+                <input type="text" name="name" placeholder="Student name ">
+                <input type="text" name="major" placeholder="Student major">
+                <button>Add Student</button>
+        
+            <ul id="student-list"></ul>
+
+        </div>
+      
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCWhYDgClLmRnPXoxl5CfFqmrFWPg1EYCA",
+            authDomain: "students-firebase.firebaseapp.com",
+            databaseURL: "https://students-firebase.firebaseio.com",
+            projectId: "students-firebase",
+            storageBucket: "students-firebase.appspot.com",
+            messagingSenderId: "467735026732",
+            appId: "1:467735026732:web:ef3c83a92c503a38b10589",
+            measurementId: "G-LKMFCYX4B9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+    </script>
+        <script src="app.js"></script>
+    </body>
+</html>
